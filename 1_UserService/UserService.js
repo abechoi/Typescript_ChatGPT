@@ -1,3 +1,12 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 class UserService {
     constructor() {
         this.users = [];
@@ -6,11 +15,10 @@ class UserService {
     addUser(user) {
         try {
             if (!user.name || !user.age) {
-                throw new Error("user name and age is required!");
+                throw new Error("User name and age are required!");
             }
             this.id++;
-            user.id = this.id;
-            this.users.push(user);
+            this.users.push(Object.assign({ id: this.id }, user));
         }
         catch (error) {
             console.error(error.message);
@@ -21,10 +29,9 @@ class UserService {
     }
     getUserById(id) {
         try {
-            const user = this.users.find(user => user.id == id);
-            console.log("user = ", user);
+            const user = this.users.find(user => user.id === id);
             if (!user) {
-                throw new Error(`user id ${id} does not exist!`);
+                throw new Error(`User with id ${id} not found.`);
             }
             return user;
         }
@@ -35,9 +42,12 @@ class UserService {
     }
     updateUser(user) {
         try {
-            const index = this.users.findIndex(u => u.id == user.id);
+            if (!user.id || !user.name || !user.age) {
+                throw new Error("User id, name, and age are all required to update a user.");
+            }
+            const index = this.users.findIndex(u => u.id === user.id);
             if (index === -1) {
-                throw new Error(`user id ${user.id} does not exist!`);
+                throw new Error(`User with id ${user.id} not found.`);
             }
             this.users[index] = user;
         }
@@ -47,10 +57,11 @@ class UserService {
     }
     deleteUser(id) {
         try {
-            this.users = this.users.filter(user => user.id != id);
-            if (this.getUserById(id)) {
-                throw new Error(`user ${id} could not be deleted!`);
+            const user = this.getUserById(id);
+            if (!user) {
+                throw new Error(`User with id ${id} not found.`);
             }
+            this.users = this.users.filter(u => u.id !== id);
         }
         catch (error) {
             console.error(error.message);
@@ -58,21 +69,23 @@ class UserService {
     }
 }
 const userService = new UserService();
-// add 3 users
-userService.addUser({ id: 0, name: "Abe", age: 35 });
-userService.addUser({ id: 0, name: "Buffy", age: 1 });
-userService.addUser({ id: 0, name: "Vampire", age: 99 });
-// print all users
-const users = userService.getUsers();
-console.log("\n1. Print users \n", users);
-// print user with id 1
-const user = userService.getUserById(1);
-console.log("\n2. Print user with id 1 \n", user);
-// print updated user with id 1
-userService.updateUser({ id: 0, name: "Abraham", age: 36 });
-const updatedUser = userService.getUserById(1);
-console.log("\n3. print updated user with id 1 \n", user);
-// delete user id 3 then print
-userService.deleteUser(3);
-const updateUsers = userService.getUsers();
-console.log("\n4. delete user 3 then print \n", updateUsers);
+(() => __awaiter(this, void 0, void 0, function* () {
+    // add 3 users
+    userService.addUser({ name: "Abe", age: 35 });
+    userService.addUser({ name: "Buffy", age: 1 });
+    userService.addUser({ name: "Vampire", age: 99 });
+    // 1. print all users
+    const users = userService.getUsers();
+    console.log("\n1. Print users \n", users);
+    // 2. print user with id 1
+    const user = yield userService.getUserById(1);
+    console.log("\n2. Print user with id 1 \n", user);
+    // 3. print updated user with id 1
+    userService.updateUser({ id: 1, name: "Abraham", age: 36 });
+    const updatedUser = yield userService.getUserById(1);
+    console.log("\n3. print updated user with id 1 \n", updatedUser);
+    // 4. delete user id 3 then print
+    userService.deleteUser(3);
+    const updatedUsers = userService.getUsers();
+    console.log("\n4. delete user 3 then print \n", updatedUsers);
+}))();
