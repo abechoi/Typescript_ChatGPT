@@ -5,10 +5,9 @@ interface User {
 }
 
 class UserService<T extends User> {
-
     private users: T[] = [];
 
-    constructor(private id = 0){}
+    constructor(private id = 0) {}
 
     addUser(user: T): void {
         this.id++;
@@ -26,22 +25,22 @@ class UserService<T extends User> {
 
     updateUser(user: T): void {
         const index = this.users.findIndex(u => u.id == user.id);
-        if(index != -2) {
+        if(index != -1) {
             this.users[index] = user;
         }
     }
 
     deleteUser(id: number): void {
-        this.users = this.users.filter(user => user.id !== id);
+        this.users = this.users.filter(user => user.id != id);
     }
 }
 
 const userService = new UserService();
 
 // add 2 users
-userService.addUser({id: 1, name: "Abe", age: 35});
-userService.addUser({id: 2, name: "Buffy", age: 1});
-userService.addUser({id: 3, name: "Vampire", age: 99});
+userService.addUser({id: 0, name: "Abe", age: 35});
+userService.addUser({id: 0, name: "Buffy", age: 1});
+userService.addUser({id: 0, name: "Vampire", age: 99});
 
 // print all users
 const users = userService.getUsers();
