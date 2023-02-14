@@ -15,7 +15,7 @@ class UserService {
     addUser(user) {
         try {
             if (!user.name || !user.age) {
-                throw new Error("User name and age are required!");
+                throw new Error("ERROR: addUser() failed - user id and age is required!");
             }
             this.id++;
             this.users.push(Object.assign({ id: this.id }, user));
@@ -31,7 +31,7 @@ class UserService {
         try {
             const user = this.users.find(user => user.id === id);
             if (!user) {
-                throw new Error(`User with id ${id} not found.`);
+                throw new Error(`ERROR: getUserById() failed - id ${id} does not exist!`);
             }
             return user;
         }
@@ -42,12 +42,9 @@ class UserService {
     }
     updateUser(user) {
         try {
-            if (!user.id || !user.name || !user.age) {
-                throw new Error("User id, name, and age are all required to update a user.");
-            }
             const index = this.users.findIndex(u => u.id === user.id);
             if (index === -1) {
-                throw new Error(`User with id ${user.id} not found.`);
+                throw new Error(`ERROR: updateUser() failed - id ${user.id} does not exist!`);
             }
             this.users[index] = user;
         }
@@ -59,9 +56,9 @@ class UserService {
         try {
             const user = this.getUserById(id);
             if (!user) {
-                throw new Error(`User with id ${id} not found.`);
+                throw new Error(`ERROR: deleteUser() failed - id ${id} does not exist!`);
             }
-            this.users = this.users.filter(u => u.id !== id);
+            this.users = this.users.filter(user => user.id !== id);
         }
         catch (error) {
             console.error(error.message);
