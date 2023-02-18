@@ -1,0 +1,45 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.navbar {
+  background-color: #2196f3;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  font-family: 'Vidaloka';
+}
+
+.navbar a {
+  margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.card {
+  background-color: #ddd;
+  padding: 20px;
+  width: 300px;
+  margin: 20px;
+  text-align: left;
+}
+
+.footer {
+  background-color: #2196f3;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
