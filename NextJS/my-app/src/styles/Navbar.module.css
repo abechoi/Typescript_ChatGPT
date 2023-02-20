@@ -1,0 +1,110 @@
+.nav {
+  background-color: #fff;
+  overflow: hidden;
+  color: #333333;
+  position: fixed;
+  box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.4);
+  font-family: 'Vidaloka';
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+}
+.linkWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav h1 {
+  margin: 0;
+  font-size: 1.875rem;
+  overflow: hidden;
+}
+
+.nav li {
+  margin: 0 16px;
+  font-size: 1.5rem;
+}
+
+.nav a {
+  color: black;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 48rem) and (max-width: 64rem) {
+  .nav {
+    flex-direction: row;
+  }
+}
+
+/* Desktop (2k, 4k, 1080p, etc) */
+
+@media screen and (min-width: 80.0625rem) {
+  .nav {
+    width: 100%;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .leftLinks {
+    order: 1;
+  }
+
+  .rightLinks {
+    order: 3;
+  }
+
+  .logo {
+    order: 2;
+  }
+
+  .linkWrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+}
+/* Tablet Portait */
+@media only screen and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) and (min-device-width: 48rem) and (max-device-width: 62.9375rem) {
+  .nav {
+    width: 100%;
+  }
+
+  .wrapper {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .logo {
+    position: absolute;
+    top: 15%;
+  }
+
+  .rightLinks {
+    margin-top: 2rem !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  .leftLinks {
+    margin-top: 2rem !important;
+    display: flex;
+    justify-content: center;
+  }
+}
