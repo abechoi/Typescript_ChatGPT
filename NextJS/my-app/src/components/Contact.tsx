@@ -47,7 +47,12 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="contact-form-wrapper">
+    <section className={styles.main} id="contact">
+        <div>
+            <h1>CONTACT</h1>
+        </div>
+        <hr />
+    <div className={styles.contactForm}>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -56,7 +61,7 @@ const Contact: React.FC = () => {
           value={formState.name}
           onChange={handleChange}
           required
-          className="contact-form-name"
+          className="contactForm"
         />
         <input
           type="email"
@@ -73,10 +78,11 @@ const Contact: React.FC = () => {
           onChange={handleChange}
           required
         ></textarea>
-        <button type="submit">Send</button>
+        <button type="submit">SEND</button>
       </form>
       {status && <p>{status}</p>}
     </div>
+    </section>
   );
 };
 

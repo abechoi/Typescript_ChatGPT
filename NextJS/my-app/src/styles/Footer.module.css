@@ -1,0 +1,39 @@
+.main {
+    margin: 60px auto;
+    font-family: 'Arial';
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.links ul {
+    list-style-type: none;
+}
+
+.links li {
+    margin: 10px auto;
+    font-size: 1.2rem;
+}
+
+.main div:last-child {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.main h2 {
+    font-size: 1rem;
+}
+
+@media only screen and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) and (min-width: 30rem) {
+    .links li {
+        font-size: 1.4rem;
+    }
+
+    .main h2 {
+        font-size: 1.2rem;
+    }
+}
