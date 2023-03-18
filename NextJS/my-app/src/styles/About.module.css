@@ -1,0 +1,46 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    background-color:#282A36;
+    font-family: 'Arial';
+    color: white;
+}
+
+.main h1 {
+    padding-top: 200px;
+    font-size: 55px;
+    text-align: center;
+}
+
+.main hr {
+    margin: 30px 20px;
+    border: #FF4136 1px solid;
+}
+
+.main img{
+    width: 75%;
+    margin: 0 auto;
+    border-radius: 50%;
+    box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.6);
+}
+
+.bio p {
+    margin: 30px 20px;
+    font-size: 1.2rem;
+}
+
+@media only screen and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) and (min-width: 30rem) {
+    .main h1 {
+        padding-top: 30px;
+    }
+
+    .main img{
+        width: 50%;
+        margin: 0 auto;
+        border-radius: 50%;
+    }
+
+    .bio p {
+        font-size: 1.4rem;
+    }
+}

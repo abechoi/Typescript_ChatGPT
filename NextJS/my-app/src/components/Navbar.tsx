@@ -7,32 +7,19 @@ const Navbar = () => {
       <div className={styles.wrapper}>
         <div className={styles.logo}>
           <Link href='/'>
-            <h1>ABE CHOI</h1>
+          <img className={styles.logoWrapper} src={`/logo-sm.png`} alt="lOGO"/>
           </Link>
         </div>
-        <div className={styles.leftLinks}>
+        <div className={styles.linkWrapper}>
           <ul>
             <li>
-              <Link href='/showcase'>Showcase</Link>
+              <Link href='#services'>SERVICES</Link>
             </li>
             <li>
-              <Link href='/services'>Services</Link>
+              <Link href='#about'>ABOUT</Link>
             </li>
             <li>
-              <Link href='/contact'>Contact</Link>
-            </li>
-          </ul>
-        </div>
-        <div className={styles.rightLinks}>
-          <ul>
-            <li>
-              <Link href='/'>Github</Link>
-            </li>
-            <li>
-              <Link href='/'>Etsy</Link>
-            </li>
-            <li>
-              <Link href='/about'>Instagram</Link>
+              <Link href='#contact'>CONTACT</Link>
             </li>
           </ul>
         </div>
