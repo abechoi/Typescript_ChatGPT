@@ -49,6 +49,21 @@
     .contactForm form {
         margin: 0px 140px 60px 140px;
         padding: 30px 100px;
+        
     }
 
+}
+
+/* Desktop (2k, 4k, 1080p, etc) */
+@media only screen and (min-width: 48rem) and (orientation: landscape) {
+
+    .contactForm {
+        margin: 0 auto;
+    }
+
+    .contactForm form {
+        width: 600px;
+        padding: 100px;
+        
+    }
 }

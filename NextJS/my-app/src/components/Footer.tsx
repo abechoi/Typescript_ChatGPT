@@ -20,8 +20,10 @@ const Footer = () => {
                 </li>
             </ul>
         </div>
+        <hr />
         <div>
-            <h2>Abraham Choi Government Contracting LLC</h2>
+            <p>Abraham Choi Government Contracting LLC</p>
+            <p>Based in California</p>
         </div>
     </section> 
     );

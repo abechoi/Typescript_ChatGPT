@@ -18,7 +18,7 @@
 }
 
 .main img{
-    width: 75%;
+    max-width: 75%;
     margin: 0 auto;
     border-radius: 50%;
     box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.6);
@@ -42,5 +42,30 @@
 
     .bio p {
         font-size: 1.4rem;
+    }
+}
+
+/* Desktop (2k, 4k, 1080p, etc) */
+@media only screen and (min-width: 48rem) and (orientation: landscape) {
+    .main img{
+        width: 25%;
+        margin: 0 auto;
+        border-radius: 50%;
+    }
+
+    .bio {
+        display: flex;
+        justify-content: center;
+    }
+
+    .bio p {
+        width: 50%;
+        max-width: 400px;
+        margin: 30px 0;
+        padding: 0px 20px;
+    }
+
+    .bio p:first-child {
+        border-right: #FF4136 1px solid;
     }
 }

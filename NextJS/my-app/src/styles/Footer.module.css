@@ -3,6 +3,11 @@
     font-family: 'Arial';
 }
 
+.main hr {
+    margin: 30px 20px;
+    border: #FF4136 1px solid;
+}
+
 .links {
     display: flex;
     justify-content: center;
@@ -21,14 +26,26 @@
 .main div:last-child {
     margin-top: 40px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    text-align: center;
 }
 
-.main h2 {
-    font-size: 1rem;
+.main p {
+    margin-top: 10px;
 }
 
 @media only screen and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) and (min-width: 30rem) {
+    
+    .main {
+        display: flex;
+        justify-content: center;
+    }
+
+    .links {
+        width: 50%;
+        border-right: #FF4136 1px solid;
+    }
+    
     .links li {
         font-size: 1.4rem;
     }
@@ -36,4 +53,42 @@
     .main h2 {
         font-size: 1.2rem;
     }
+
+    .main hr{
+        display: none;
+    }
+
+    .main div:last-child{
+        margin: 40px auto;
+    }
+}
+
+/* Desktop (2k, 4k, 1080p, etc) */
+@media only screen and (min-width: 48rem) and (orientation: landscape) {
+    .main {
+        display: flex;
+        justify-content: center;
+    }
+
+    .links {
+        width: 50%;
+        border-right: #FF4136 1px solid;
+    }
+    
+    .links li {
+        font-size: 1.4rem;
+    }
+
+    .main h2 {
+        font-size: 1.2rem;
+    }
+
+    .main hr{
+        display: none;
+    }
+
+    .main div:last-child{
+        margin: 40px auto;
+    }
+
 }

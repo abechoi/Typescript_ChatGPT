@@ -18,15 +18,27 @@
 }
 
 .services div{
-    margin: 0 20px 30px 20px;
+    margin: 0 20px 60px 20px;
+    max-width: 425px;
+    padding: 30px 20px;
+    background-color: #282A36;
+    color: white;
+    box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.6);
 }
 
-.services div h2 {
+.services h2 {
     margin-bottom: 10px;
+    text-align: center;
+    font-size: 1.3rem;
 }
 
-.services div p {
+.services p {
     font-size: 1.2rem;
+    padding: 0px 30px;
+}
+
+.services hr {
+    margin: 30px 0;
 }
 
 @media only screen and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) and (min-width: 30rem) {
@@ -34,7 +46,47 @@
         padding-top: 200px;
     }
 
-    .services div p {
-        font-size: 1.4rem;
+    .services {
+        display: flex;
+        flex-direction: column;
+        margin: 20px auto 0 auto;
+    }
+
+    .services h2 {
+        font-size: 1.6rem;
+    }
+
+    .services p {
+        font-size: 1.5rem;
+    }
+}
+
+/* Desktop (2k, 4k, 1080p, etc) */
+@media only screen and (min-width: 48rem) and (orientation: landscape) {
+
+    .services {
+        display: flex;
+        justify-content: center;
+    }
+
+    .services hr {
+        margin: 30px 0;
+    }
+
+    .services div {
+        max-width: 400px;
+        margin-bottom: 60px;
+        padding: 30px 20px;
+        background-color: #282A36;
+        color: white;
+        box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.6);
+    }
+
+    .services h2 {
+        text-align: center;
+    }
+
+    .services p {
+        padding: 0px 20px;
     }
 }
